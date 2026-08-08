@@ -117,6 +117,17 @@ add_executable(fuzzer
 
 target_link_libraries(fuzzer fuzzerlib)
 
+add_executable(bmp_fuzzer
+  custom_fuzzers/bmp/bmp_fuzzer.cpp
+  mutators/bmp/bmp_mutator.cpp
+)
+
+target_include_directories(bmp_fuzzer PRIVATE
+  ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+target_link_libraries(bmp_fuzzer fuzzerlib)
+
 add_executable(test
   test.cpp
   )
